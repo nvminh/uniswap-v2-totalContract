@@ -1,16 +1,16 @@
 const TOKENS = {
   dai: {
-    address: '0xad6d458402f60fd3bd25163575031acdce07538d',
-    amountDesired: (500 * 10 ** 18).toString(),
-    amountMin: (300 * 10 ** 18).toString(),
-    amountETHMin: (1 * 10 ** 18).toString(),
+    address: '0x31f42841c2db5173425b5223809cf3a38fede360',
+    amountDesired: (50 * 10 ** 18).toString(),
+    amountMin: (30 * 10 ** 18).toString(),
+    amountETHMin: (0.1 * 10 ** 18).toString(),
   },
 };
 
 const SWAP_EXACT_ETH_FOR_TOKENS = {
   dai: {
-    address: '0xad6d458402f60fd3bd25163575031acdce07538d',
-    amountETH: (0.1 * 10 ** 18).toString(),
+    address: '0x31f42841c2db5173425b5223809cf3a38fede360',
+    amountETH: (0.01 * 10 ** 18).toString(),
   },
 };
 

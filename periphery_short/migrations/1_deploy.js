@@ -6,7 +6,7 @@ module.exports = async function(deployer) {
   try {
     await deployer.deploy(
       UniswapV2Router02,
-      '0xFa900667AFa28FC7f979d4B2F4C18eB786Ff803f' /* Replace your factory address at here */,
+        process.env.CONTRACT_ADDRESS /* Replace your factory address at here */,
       WETH,
       {
         gas: 8000000,

@@ -1,6 +1,6 @@
 const TOKENS = {
   dai: {
-    address: '0xad6d458402f60fd3bd25163575031acdce07538d',
+    address: '0x31f42841c2db5173425b5223809cf3a38fede360',
   },
 };
 

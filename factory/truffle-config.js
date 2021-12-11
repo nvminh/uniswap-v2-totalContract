@@ -1,40 +1,35 @@
 require('dotenv').config();
-
-var HDWalletProvider = require('@truffle/hdwallet-provider');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
+  // See <http://truffleframework.com/docs/advanced/configuration>
+  // to customize your Truffle configuration!
+  // See <http://truffleframework.com/docs/advanced/configuration>
+  // to customize your Truffle configuration!
   networks: {
-    develop: {
-      host: 'localhost',
-      port: 7545, // Match default network 'ganache'
-      network_id: 5777,
-      gas: 6721975, // Truffle default development block gas limit
-      gasPrice: 200000000000,
-      solc: {
-        version: '0.5.0',
-        optimizer: {
-          enabled: true,
-          runs: 200,
-        },
-      },
+    development: {
+      host: "127.0.0.1",
+      port: "7545",
+      network_id: "*" // match any network id
+    },
+    // rinkeby: {
+    //     host: "localhost",
+    //     port: 8545,
+    //     network_id: 4,
+    //     gas: 4700000
+    // },
+    rinkeby: {
+      from: process.env.OPERATOR_ADDRESS,
+      provider: () => new HDWalletProvider(process.env.OPERATOR_PRIVATE_KEY, 'https://rinkeby.infura.io/v3/'.concat(process.env.INFURA_PROJECT_ID)),
+      network_id: 4,       // Ropsten's id
+      gas: 4700000        // Ropsten has a lower block limit than mainnet
     },
     ropsten: {
-      networkCheckTimeout: 100000,
-      provider: function() {
-        return new HDWalletProvider(
-          process.env.OPERATOR_PRIVATE_KEY,
-          'https://ropsten.infura.io/v3/'.concat(process.env.INFURA_PROJECT_ID)
-        );
-      },
-      network_id: 3,
-      gas: 8000000,
-    },
-  },
-  rpc: {
-    host: 'localhost',
-    post: 8080,
-  },
-  mocha: {
-    useColors: true,
-  },
+      from: process.env.OPERATOR_ADDRESS,
+      provider: () => new HDWalletProvider(process.env.OPERATOR_PRIVATE_KEY, 'https://ropsten.infura.io/v3/'.concat(process.env.INFURA_PROJECT_ID)),
+      network_id: 3,       // Ropsten's id
+      gas: 4700000        // Ropsten has a lower block limit than mainnet
+    }
+
+  }
 };
