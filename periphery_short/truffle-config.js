@@ -31,5 +31,10 @@ module.exports = {
       gas: 4700000        // Ropsten has a lower block limit than mainnet
     }
 
+  },
+  compilers: {
+    solc: {
+      version: "0.6.6"
+    }
   }
 };

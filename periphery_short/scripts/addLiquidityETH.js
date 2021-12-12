@@ -8,7 +8,7 @@ module.exports = async () => {
       throw new Error('Invalid Network ID!');
     }
 
-    if (process.argv[6] !== 'dai') {
+    if (process.argv[6] !== 'dai' && process.argv[6] !== 'minh') {
       throw new Error('Invalid token name!');
     }
 
@@ -21,6 +21,7 @@ module.exports = async () => {
     const uniswapV2Router02Instance = await UniswapV2Router02.deployed();
     const erc20Instance = await ERC20.at(tokenAddress);
 
+    console.log('uniswapV2Router02Instance: ' + uniswapV2Router02Instance.address);
     await erc20Instance.approve(uniswapV2Router02Instance.address, amountDesired);
 
     await uniswapV2Router02Instance.addLiquidityETH(

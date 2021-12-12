@@ -7,7 +7,7 @@ module.exports = async () => {
       throw new Error('Invalid Network ID!');
     }
 
-    if (process.argv[6] !== 'dai') {
+    if (process.argv[6] !== 'dai' && process.argv[6] !== 'minh' && process.argv[6] !== 'eth') {
       throw new Error('Invalid token name!');
     }
 

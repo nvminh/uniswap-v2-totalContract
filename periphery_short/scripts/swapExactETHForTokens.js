@@ -8,7 +8,7 @@ module.exports = async () => {
       throw new Error('Invalid Network ID!');
     }
 
-    if (process.argv[6] !== 'dai') {
+    if (process.argv[6] !== 'dai' && process.argv[6] !== 'minh') {
       throw new Error('Invalid token name!');
     }
 
@@ -37,6 +37,10 @@ module.exports = async () => {
       reserveETH,
       reserveDAI
     );
+
+    console.log('reserveETH: ' + reserveETH);
+    console.log('reserveToken: ' + reserveDAI);
+    console.log('Tokens are swapped: ' + daiAmountMin);
 
     let receipt = await uniswapV2Router02Instance.swapExactETHForTokens(
       daiAmountMin,
